@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lemon.mapper.ApiMapper">
+	
+  <resultMap id="apiVO" type="com.lemon.common.ApiVO">
+
+		<result column="id" property="id"/>
+		<result column="api_classification_id" property="apiClassificationId"/>
+		<result column="name" property="name"/>
+		<result column="method" property="method"/>
+		<result column="url" property="url"/>
+		<result column="description" property="description"/>
+		<result column="create_user" property="createUser"/>
+		<result column="create_time" property="createTime"/>
+		<result column="username" property="createUsername"/>
+		<result column="host" property="host"/>
+		<collection property="requestParams" ofType="com.lemon.pojo.ApiRequestParam" column="api_id">
+			<id column="re_id" property="id"/>
+			<result column="api_id" property="apiId"/>
+			<result column="re_name" property="name"/>
+			<result column="param_type" property="paramType"/>
+			<result column="type" property="type"/>
+			<result column="example_data" property="exampleData"/>
+			<result column="re_descriptyion" property="description"/>
+		</collection>
+	</resultMap>
+	
+	<select id="findApiVO" resultMap="apiVO" >
+		SELECT
+			api.*,
+			project.HOST,
+			USER.username,
+			re.id re_id,
+			re.api_id,
+			re.NAME re_name,
+			re.param_type,
+			re.type,
+			re.example_data,
+			re.description AS re_decriprtion 
+		FROM
+			api
+			LEFT JOIN user ON api.create_user = user.id
+			LEFT JOIN api_classification ON api.api_classification_id = api_classification.id
+			LEFT JOIN project ON api_classification.id = project.id
+			LEFT JOIN api_request_param re ON api.id = re.api_id 
+		WHERE
+		<if test="apiId != null">
+			api.id = #{apiId}
+		</if>	
+	</select> 
+
+</mapper>
