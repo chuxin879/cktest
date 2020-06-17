@@ -1,4 +1,4 @@
-﻿package com.lemon.generator;
+package com.lemon.generator;
 
 import java.util.ArrayList;
 import java.util.List;
