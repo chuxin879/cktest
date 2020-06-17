@@ -78,4 +78,5 @@ com\lemon\dto\ProjectDTO.class
 com\lemon\pojo\Suite.class
 com\lemon\shiro\ShiroConfig.class
 com\lemon\common\ApiRunResult.class
+com\lemon\handler\CorsConfig.class
 com\lemon\pojo\TestReport.class
