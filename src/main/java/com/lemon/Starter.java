@@ -14,6 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class Starter {
 	public static void main(String args[]) {
 		SpringApplication.run(Starter.class, args);
+//		System.out.println("22");
 	}
 }
 	

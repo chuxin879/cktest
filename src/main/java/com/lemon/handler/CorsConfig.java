@@ -1,5 +1,4 @@
-﻿package com.lemon.handler;
-
+package com.lemon.handler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -12,11 +11,11 @@ public class CorsConfig {
 	private CorsConfiguration buildConfig() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.addAllowedOrigin("*"); // 1
+		corsConfiguration.addAllowedOrigin("*"); 
 		
-		corsConfiguration.addAllowedHeader("*"); // 2
+		corsConfiguration.addAllowedHeader("*"); 
 
-		corsConfiguration.addAllowedMethod("*"); // 3
+		corsConfiguration.addAllowedMethod("*"); 
 		return corsConfiguration;
 	}
 
@@ -25,8 +24,7 @@ public class CorsConfig {
 
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
-		source.registerCorsConfiguration("/**", buildConfig()); // 4
-
+		source.registerCorsConfiguration("/**", buildConfig());
 		return new CorsFilter(source);
 	}
 

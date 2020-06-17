@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lemon.common.ApiListVO;
+import com.lemon.common.ApiRunResult;
 import com.lemon.common.ApiVO;
 import com.lemon.common.Result;
 import com.lemon.pojo.ApiRequestParam;
@@ -80,5 +81,16 @@ public class ApiController {
 		return new Result("1", "updata the api success");
 		
 	}
+	
+	@PostMapping("/run")
+	public Result run(ApiVO apiRunVO) {
+		
+		ApiRunResult apiRunresult = apiService.run(apiRunVO);
+		Result result = new Result("1",apiRunresult);
+		return result;                                                                                       
+	}
+	
+	
+	
 
 }

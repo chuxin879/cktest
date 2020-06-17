@@ -1,6 +1,7 @@
 package com.lemon.service;
 
 import com.lemon.common.ApiListVO;
+import com.lemon.common.ApiRunResult;
 import com.lemon.common.ApiVO;
 import com.lemon.pojo.Api;
 
@@ -23,4 +24,7 @@ public interface ApiService extends IService<Api> {
 	public List<ApiListVO> showApiListByClassificationId(Integer apiClassificationId);
 	
 	public ApiVO findApiVO(Integer apiId);
+	
+	public ApiRunResult run(ApiVO apiRunVO);
 }
+
