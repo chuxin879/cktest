@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -56,4 +58,21 @@ public class ApiClassificationController {
 		return result;
 	}
 
+	
+	//添加一个接口分类
+	@PostMapping("/add")
+	public Result add(@RequestBody ApiClassification apiClassification) {
+		
+//		QueryWrapper<ApiClassification> queryWrapper = new QueryWrapper<>();
+//		queryWrapper.eq()
+		if (apiClassificationService.saveOrUpdate(apiClassification)){
+			return new Result("1", "save success");
+		}else {
+			return new Result("0", "save failure");
+		}
+		
+	}
 }
+
+
+

@@ -20,6 +20,10 @@ public class ApiRunResult {
 	}
 	
 	
+	public ApiRunResult() {}
+	
+	
+	
 	
 	
 }

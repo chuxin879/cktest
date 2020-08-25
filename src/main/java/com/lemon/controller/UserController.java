@@ -12,11 +12,13 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lemon.common.Result;
+import com.lemon.dto.UserDTO;
 import com.lemon.pojo.User;
 import com.lemon.service.UserService;
 
@@ -73,7 +75,8 @@ public class UserController {
 	//登录方法	
 	@PostMapping("/login")
 	@ApiOperation(value="登录", httpMethod="POST")
-	public Result login(User user) {
+	public Result login(@RequestBody UserDTO user) {
+		
 		//shiro
 		Result result = null;
 		try {

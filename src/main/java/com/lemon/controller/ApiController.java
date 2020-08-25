@@ -67,17 +67,7 @@ public class ApiController {
 	
 	@PostMapping("/apiEdit")
 	public Result apiEdit(ApiVO apiEdit) {
-		System.out.println(apiEdit);
-		apiService.updateById(apiEdit);
-		QueryWrapper<ApiRequestParam> queryWrapper = new QueryWrapper<>();
-		queryWrapper.eq("api_id", apiEdit.getId());
-		apiRequestParamService.remove(queryWrapper);
-		apiEdit.getRequestParams().addAll(apiEdit.getQueryParams());
-		apiEdit.getRequestParams().addAll(apiEdit.getBodyParams());
-		apiEdit.getRequestParams().addAll(apiEdit.getBodyRawParam());
-		apiEdit.getRequestParams().addAll(apiEdit.getHeadersParams());
-		apiRequestParamService.saveBatch(apiEdit.getRequestParams());
-		
+		apiService.apiEdit(apiEdit);
 		return new Result("1", "updata the api success");
 		
 	}

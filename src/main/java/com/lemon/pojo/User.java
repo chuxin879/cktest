@@ -42,6 +42,8 @@ public class User implements Serializable {
     @ApiModelProperty(value = "注册时间")
     @TableField(fill=FieldFill.INSERT)
     private Date regtime;
+    
+    
 
 
 }

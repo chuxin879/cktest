@@ -1,7 +1,9 @@
 package com.lemon.service;
 
-import com.lemon.pojo.Suite;
+import java.util.List;
+
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lemon.pojo.Suite;
 
 /**
  * <p>
@@ -12,5 +14,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-02-19
  */
 public interface SuiteService extends IService<Suite> {
-
+	
+	public List<Suite> listSuite(Integer projectId);
 }

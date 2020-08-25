@@ -26,5 +26,7 @@ public interface ApiService extends IService<Api> {
 	public ApiVO findApiVO(Integer apiId);
 	
 	public ApiRunResult run(ApiVO apiRunVO);
+	
+	public void apiEdit(ApiVO apiEdit);
 }
 

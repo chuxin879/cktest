@@ -29,9 +29,10 @@
 		SELECT
 			api.*,
 			project.HOST,
-			USER.username,
+			user.username,
 			re.id re_id,
 			re.api_id,
+	
 			re.NAME re_name,
 			re.param_type,
 			re.type,
@@ -43,10 +44,12 @@
 			LEFT JOIN api_classification ON api.api_classification_id = api_classification.id
 			LEFT JOIN project ON api_classification.id = project.id
 			LEFT JOIN api_request_param re ON api.id = re.api_id 
-		WHERE
-		<if test="apiId != null">
-			api.id = #{apiId}
-		</if>	
+		<where>
+			<if test="apiId != null">
+				api.id = #{apiId}
+			</if>
+		</where>
+			
 	</select> 
 
 </mapper>

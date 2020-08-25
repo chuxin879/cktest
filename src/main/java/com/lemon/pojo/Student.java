@@ -51,7 +51,7 @@ public class Student implements Serializable {
     @ApiModelProperty(value = "修改的时间")
     private Date gmtModified;
 
-    private Integer delete;
+    private Integer delete;	
 
 
 }
